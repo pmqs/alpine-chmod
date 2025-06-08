@@ -52,10 +52,9 @@ jobs:
      - name: create non-root user
        run: |
           id
-          echo '$PATH'
-          adduser -D tester
-          su  tester echo id
-          sudo tester echo '$PATH'
+          echo $PATH
+          sudo  tester echo id
+          sudo tester echo $PATH
 
             
      - name: try chmod
