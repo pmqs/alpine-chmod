@@ -49,6 +49,7 @@ jobs:
 
      - name: nake cwd world readable
        run: |
+          sudo tester ls -al ~
           chmod 777 .
           
      - name: run as non-root user
