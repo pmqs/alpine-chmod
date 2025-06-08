@@ -58,6 +58,7 @@ jobs:
           python3 <<__SCRIPT__
 
           import os
+          import stat
 
           mode = 0
           # mode |= stat.S_IEXEC 
@@ -66,8 +67,6 @@ jobs:
           os.chmod('xxx.txt', mode)
       
           __SCRIPT__
-          
-     - name: stat
-       run: |          
+
           stat xxx.txt
           
