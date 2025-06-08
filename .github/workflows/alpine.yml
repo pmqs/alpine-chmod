@@ -37,6 +37,7 @@ jobs:
 
      - name: create non-root user
        run: |
+          id
           adduser -D tester
           su tester id
           
