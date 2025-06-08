@@ -27,7 +27,6 @@ jobs:
     steps:
      - name: Install packages
        run: |
-         cat /etc/passwd
          apk update
          apk add git perl python3 sudo
 
@@ -55,6 +54,7 @@ jobs:
      - name: ash_profile
        run: |
           cat ~tester/.bashrc
+          cat /etc/passwd
           
 
      - name: nake cwd world readable
