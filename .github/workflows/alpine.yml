@@ -39,7 +39,7 @@ jobs:
        run: |
           id
           adduser -D tester
-          su tester id
+          su - tester id
           
      - name: try chmod
        run: |
