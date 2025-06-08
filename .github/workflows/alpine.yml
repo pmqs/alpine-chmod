@@ -49,17 +49,18 @@ jobs:
 
      - name: run as non-root user
        run: |
-          sudo -u tester
+          sudo -u tester -s <<END
           id
           echo $PATH
           tester
           echo id
           tester echo $PATH
+          END
 
             
      - name: try chmod
        run: |
-          sudo -u tester
+          sudo -u tester -s <<END
           
           echo abcd >fred.txt
           stat fred.txt
@@ -75,11 +76,12 @@ jobs:
           chmod u-r,u+w joe.txt
           stat joe.txt 
           cat joe.txt
+          END
 
      - name: try python for chmod
        run: |
 
-          sudo -u tester
+          sudo -u tester -s <<END
           
           echo abcd >xxx.txt
           stat xxx.txt
@@ -98,4 +100,5 @@ jobs:
 
           stat xxx.txt
           cat xxx.txt
+          END
           
