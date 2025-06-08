@@ -66,5 +66,8 @@ jobs:
           os.chmod('xxx.txt', mode)
       
           __SCRIPT__
+          
+     - name: stat
+       run: |          
           stat xxx.txt
           
