@@ -41,7 +41,22 @@ jobs:
           echo $PATH
           adduser -D tester
           su tester echo '$PATH'
-          
+          # add new user
+          USER=tester
+          adduser -D $USER \
+            && mkdir -p /etc/sudoers.d \
+            && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
+            && chmod 0440 /etc/sudoers.d/$USER
+
+     - name: create non-root user
+       run: |
+          id
+          echo $PATH
+          adduser -D tester
+          sudo tester echo id
+          sudo tester echo '$PATH'
+
+            
      - name: try chmod
        run: |
           echo abcd >fred.txt
