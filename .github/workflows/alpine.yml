@@ -58,7 +58,6 @@ jobs:
      - name: nake cwd world readable
        run: |
           sudo -u tester ls -al ~tester
-          sudo -u tester echo PATH=/tmp:$PATH >~tester/.
           chmod 777 .
           
      - name: run as non-root user
@@ -66,7 +65,6 @@ jobs:
           sudo -u tester --shell <<END
             echo $PATH
             id
-            echo $PATH
             ls -l 
           END
 
