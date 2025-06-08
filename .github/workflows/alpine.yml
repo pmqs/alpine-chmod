@@ -47,15 +47,15 @@ jobs:
             && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
             && chmod 0440 /etc/sudoers.d/$USER
 
+     - name: nake cwd world readable
+       run: |
+          chmod 777 .
+          
      - name: run as non-root user
+       shell: sudo -u tester --shell {0}
        run: |
           id
           echo $PATH
-          
-          sudo -u tester -s <<END
-          id
-          echo $PATH
-          END
 
             
      - name: try chmod
