@@ -38,6 +38,7 @@ jobs:
      - name: create non-root user
        run: |
           id
+          echo $SHELL
           echo $PATH
           adduser -D tester
           su tester echo '$PATH'
