@@ -70,7 +70,7 @@ jobs:
           sudo -u tester --login <<END
             echo HOME=$HOME
             echo PWD=$PWD
-            cat $HOME/.bashrc
+            cat /home/tester/.bashrc
             echo $PATH
             id
             ls -l 
