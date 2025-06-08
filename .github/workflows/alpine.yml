@@ -34,6 +34,11 @@ jobs:
      - name: what are we running?
        run: |
           cat /etc/os-release 
+
+     - name: create non-root user
+       run: |
+          adduser -D tester
+          su tester whoami
           
      - name: try chmod
        run: |
