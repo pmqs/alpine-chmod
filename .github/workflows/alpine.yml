@@ -38,8 +38,9 @@ jobs:
      - name: create non-root user
        run: |
           id
+          echo $PATH
           adduser -D tester
-          su - tester id
+          su tester echo '$PATH'
           
      - name: try chmod
        run: |
