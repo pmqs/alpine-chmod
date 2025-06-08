@@ -61,6 +61,7 @@ jobs:
           chmod 777 .
           
      - name: run as non-root user
+       shell: sh -e {0}
        run: |
           sudo -u tester --shell <<END
             echo $PATH
