@@ -41,7 +41,7 @@ jobs:
           stat fred.txt
           cat fred.txt
           
-          chmod 200 fred.txt
+          chmod 222 fred.txt
           stat fred.txt
 
           echo def >joe.txt
@@ -63,7 +63,7 @@ jobs:
 
           mode = 0
           # mode |= stat.S_IEXEC 
-          mode |= stat.S_IWRITE 
+          mode |= stat.S_IWUSR | stat.S_IWGRP | stat.S_IWOTH
           # mode |= stat.S_IREAD  
           os.chmod('xxx.txt', mode)
       
