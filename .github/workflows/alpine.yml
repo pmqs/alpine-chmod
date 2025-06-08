@@ -55,7 +55,7 @@ jobs:
        run: |
           touch xxx.txt
           stat xxx.txt
-          python3 <<'__SCRIPT__'
+          python3 <<__SCRIPT__
 
           import os
 
