@@ -47,7 +47,7 @@ jobs:
             && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
             && chmod 0440 /etc/sudoers.d/$USER 
           echo 'export PATH=/tmp:$PATH' >~tester/.bashrc
-          sudo -u $USER chown tester ~tester/.bashrc
+          chown tester ~tester/.bashrc
           ls -al ~tester
          
      - name: ash_profile
