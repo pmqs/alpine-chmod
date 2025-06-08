@@ -50,7 +50,9 @@ jobs:
           echo 'export PATH=/tmp:$PATH' >>/home/tester/.bashrc
           chown tester /home/tester/.bashrc
           echo 'export PATH=/tmp:$PATH' >>/home/tester/.bash_profile
-          chown tester /home/tester/.bash_profile          
+          chown tester /home/tester/.bash_profile     
+          echo 'export PATH=/tmp:$PATH' >>/home/tester/.login
+          chown tester /home/tester/.login             
           ls -al /home/tester
          
      - name: ash_profile
