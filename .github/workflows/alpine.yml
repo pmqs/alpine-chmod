@@ -25,23 +25,44 @@ jobs:
       image: amd64/alpine
 
     steps:
-     # - name: Install packages
-    #   run: |
-    #     apk update
-    #     apk add git perl python3 py3-pip py3-pytest py3-pexpect py3-jsonschema py3-yaml  build-base zlib-dev bzip2-dev expect musl-locales ${{ matrix.opt.compiler }}
+     - name: Install packages
+       run: |
+         apk update
+         apk add git perl python3 
 
 
-    - name: what are we running?
-      run: |
+     - name: what are we running?
+       run: |
           cat /etc/alpine-release 
           cat /etc/os-release 
           uname -a
           
-    - name: try chmod
-      run: |
+     - name: try chmod
+       run: |
           touch fred.txt
           stat fred.txt
           
           chmod 200 fred.txt
           stat fred.txt
+
+          touch joe.txt
+          stat joe.txt
+          
+          chmod u-r,u+w joe.txt
+          stat joe.txt          
+
+     - name: try python for chmod
+       run: |
+          touch xxx.txt
+          stat xxx.txt
+          python3 <<'__SCRIPT__'
+
+          mode = 0
+          # mode |= stat.S_IEXEC 
+          mode |= stat.S_IWRITE 
+          # mode |= stat.S_IREAD  
+          os.chmod('xxx.txt', mode)
+      
+          __SCRIPT__
+          stat xxx.txt
           
