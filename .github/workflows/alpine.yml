@@ -62,7 +62,7 @@ jobs:
           cat fred.txt
           
           chmod 222 fred.txt
-          stat fred.txt
+          sudo -u tester stat fred.txt
 
           echo def >joe.txt
           stat joe.txt
@@ -70,7 +70,7 @@ jobs:
           
           chmod u-r,u+w joe.txt
           stat joe.txt 
-          cat joe.txt
+          sudo -u tester cat joe.txt
 
      - name: try python for chmod
        run: |
@@ -90,5 +90,5 @@ jobs:
           __SCRIPT__
 
           stat xxx.txt
-          cat xxx.txt
+          sudo -u tester cat xxx.txt
           
