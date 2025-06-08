@@ -46,7 +46,7 @@ jobs:
             && mkdir -p /etc/sudoers.d \
             && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
             && chmod 0440 /etc/sudoers.d/$USER \
-            && sudo -u tester echo 'export PATH=/tmp:$PATH' ~tester/.bash_profile
+          sudo -u $USER echo 'export PATH=/tmp:$PATH' ~tester/.bash_profile
          
      - name: ash_profile
        run: |
