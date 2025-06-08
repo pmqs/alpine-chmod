@@ -68,12 +68,6 @@ jobs:
             ls -l 
           END
 
-     - name: run as non-root user with custom shell
-       shell: sh -e /usr/bin/sudo -u tester --shell {0}
-       run: |
-            echo $PATH
-            id
-            ls -l 
           
             
      - name: try chmod
