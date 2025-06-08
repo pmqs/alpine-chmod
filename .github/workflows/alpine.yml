@@ -28,7 +28,7 @@ jobs:
      - name: Install packages
        run: |
          apk update
-         apk add git perl python3 
+         apk add git perl python3 sudo
 
 
      - name: what are we running?
@@ -47,7 +47,7 @@ jobs:
             && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
             && chmod 0440 /etc/sudoers.d/$USER
 
-     - name: create non-root user
+     - name: run as non-root user
        run: |
           id
           echo $PATH
