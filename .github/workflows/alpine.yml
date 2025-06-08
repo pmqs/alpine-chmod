@@ -33,6 +33,7 @@ jobs:
 
     - name: what are we running?
       run: |
+          cat /etc/alpine-release file
           uname -a
           
     - name: try chmod
