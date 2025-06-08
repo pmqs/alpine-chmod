@@ -1,0 +1,44 @@
+name: Alpine
+
+# Alpine uses MUSL instead os glibc
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+
+
+# defaults:
+#   run:
+#     shell: bash
+
+jobs:
+  configure:
+    name: Alpine
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+
+    container:
+      image: amd64/alpine
+
+    steps:
+     # - name: Install packages
+    #   run: |
+    #     apk update
+    #     apk add git perl python3 py3-pip py3-pytest py3-pexpect py3-jsonschema py3-yaml  build-base zlib-dev bzip2-dev expect musl-locales ${{ matrix.opt.compiler }}
+
+
+    - name: what are we running?
+      run: |
+          uname -a
+          
+    - name: try chmod
+      run: |
+          touch fred.txt
+          stat fred
+          chmod 200 fred.txt
+          stat fred.txt
+          
