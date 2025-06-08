@@ -40,8 +40,6 @@ jobs:
           id
           echo '$SHELL'
           echo '$PATH'
-          adduser -D tester
-          su tester echo '$PATH'
           # add new user
           USER=tester
           adduser -D $USER \
