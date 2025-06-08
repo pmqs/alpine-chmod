@@ -49,14 +49,16 @@ jobs:
 
      - name: nake cwd world readable
        run: |
-          sudo tester ls -al ~
+          sudo -w tester ls -al ~tester
           chmod 777 .
           
      - name: run as non-root user
-       shell: sudo -u tester --shell {0}
        run: |
-          id
-          echo $PATH
+          sudo -u tester --shell <<END
+            id
+            echo $PATH
+            ls -l 
+          END
 
             
      - name: try chmod
