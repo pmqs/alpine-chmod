@@ -51,8 +51,8 @@ jobs:
           chown tester /home/tester/.bashrc
           echo 'export PATH=/tmp:$PATH' >>/home/tester/.bash_profile
           chown tester /home/tester/.bash_profile     
-          echo 'export PATH=/tmp:$PATH' >>/home/tester/.login
-          chown tester /home/tester/.login             
+          echo 'export PATH=/tmp:$PATH' >>/home/tester/.profile
+          chown tester /home/tester/.profile             
           ls -al /home/tester
          
      - name: ash_profile
@@ -66,13 +66,15 @@ jobs:
        run: |
           sudo -u tester --login ls -al /home/tester
           chmod 777 .
-          
+          e
      - name: run as non-root user 
        run: |
           sudo -u tester --login <<END
             echo HOME=$HOME
             echo PWD=$PWD
             cat /home/tester/.bashrc
+            cat /home/tester/.profile
+            cat /home/tester/.bash_profile
             echo $PATH
             id
             ls -l 
