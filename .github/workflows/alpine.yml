@@ -63,7 +63,7 @@ jobs:
      - name: run as non-root user 
        run: |
           sudo -u tester --shell <<END
-            echo $CWD
+            echo $PWD
             echo $PATH
             id
             ls -l 
