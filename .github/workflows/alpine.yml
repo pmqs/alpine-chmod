@@ -67,7 +67,7 @@ jobs:
           
      - name: run as non-root user 
        run: |
-          sudo -i- u tester --shell <<END
+          sudo -i u tester --shell <<END
             echo HOME=$HOME
             echo PWD=$PWD
             cat $HOME/.bashrc
