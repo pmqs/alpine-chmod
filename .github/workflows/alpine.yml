@@ -51,8 +51,8 @@ jobs:
        run: |
           id
           echo $PATH
-          sudo  tester echo id
-          sudo tester echo $PATH
+          sudo -u tester echo id
+          sudo -u tester echo $PATH
 
             
      - name: try chmod
