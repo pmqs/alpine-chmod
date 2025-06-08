@@ -62,12 +62,12 @@ jobs:
 
      - name: nake cwd world readable
        run: |
-          sudo -i -u tester ls -al /home/tester
+          sudo -u tester --login ls -al /home/tester
           chmod 777 .
           
      - name: run as non-root user 
        run: |
-          sudo -i -u tester --shell <<END
+          sudo -u tester --login <<END
             echo HOME=$HOME
             echo PWD=$PWD
             cat $HOME/.bashrc
@@ -81,7 +81,7 @@ jobs:
      - name: try chmod
        run: |
           chmod 777 .
-          sudo -i -u tester -s <<END
+          sudo -u tester --login <<END
           
           echo abcd >fred.txt
           stat fred.txt
@@ -102,7 +102,7 @@ jobs:
      - name: try python for chmod
        run: |
 
-          sudo -i -u tester -s <<END
+          sudo -u tester --login <<END
           
           echo abcd >xxx.txt
           stat xxx.txt
