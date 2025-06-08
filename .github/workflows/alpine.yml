@@ -69,7 +69,7 @@ jobs:
           END
 
      - name: run as non-root user with custom shell
-       shell: sh -e sudo -u tester --shell {0}
+       shell: sh -e /usr/bin/sudo -u tester --shell {0}
        run: |
             echo $PATH
             id
