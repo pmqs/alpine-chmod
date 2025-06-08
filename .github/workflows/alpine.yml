@@ -37,21 +37,24 @@ jobs:
           
      - name: try chmod
        run: |
-          touch fred.txt
+          echo abcd >fred.txt
           stat fred.txt
+          cat fred.txt
           
           chmod 200 fred.txt
           stat fred.txt
 
-          touch joe.txt
+          echo def >joe.txt
           stat joe.txt
+          cat joe.txt
           
           chmod u-r,u+w joe.txt
-          stat joe.txt          
+          stat joe.txt 
+          cat joe.txt
 
      - name: try python for chmod
        run: |
-          touch xxx.txt
+          echo abcd >xxx.txt
           stat xxx.txt
           python3 <<__SCRIPT__
 
@@ -67,4 +70,5 @@ jobs:
           __SCRIPT__
 
           stat xxx.txt
+          cat xxx.txt
           
