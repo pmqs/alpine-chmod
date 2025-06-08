@@ -60,6 +60,7 @@ jobs:
             
      - name: try chmod
        run: |
+          chmod 777 .
           sudo -u tester -s <<END
           
           echo abcd >fred.txt
