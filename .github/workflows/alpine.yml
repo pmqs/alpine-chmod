@@ -38,8 +38,9 @@ jobs:
      - name: create non-root user
        run: |
           id
-          echo '$SHELL'
-          echo '$PATH'
+          echo $HOME
+          echo $SHELL
+          echo $PATH
           # add new user
           USER=tester
           adduser -D $USER \
@@ -63,6 +64,7 @@ jobs:
      - name: run as non-root user 
        run: |
           sudo -u tester --shell <<END
+            echo $HOME
             echo $PWD
             echo $PATH
             id
