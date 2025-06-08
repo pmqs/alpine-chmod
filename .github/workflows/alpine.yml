@@ -34,6 +34,7 @@ jobs:
     - name: what are we running?
       run: |
           cat /etc/alpine-release 
+          cat /etc/os-release 
           uname -a
           
     - name: try chmod
