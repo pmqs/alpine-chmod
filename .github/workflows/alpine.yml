@@ -66,7 +66,7 @@ jobs:
        run: |
           sudo -u tester --login ls -al /home/tester
           chmod 777 .
-          e
+          
      - name: run as non-root user 
        run: |
           sudo -u tester --login <<END
