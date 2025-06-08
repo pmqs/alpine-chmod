@@ -49,12 +49,12 @@ jobs:
 
      - name: run as non-root user
        run: |
+          id
+          echo $PATH
+          
           sudo -u tester -s <<END
           id
           echo $PATH
-          tester
-          echo id
-          tester echo $PATH
           END
 
             
